@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <Link to="/companies">Companies</Link>
-      <Link to="/profile">Profile</Link>
-      <Link to="/settings">Settings</Link>
+      <span className="brand">Internship Tracker</span>
+      <NavLink to="/companies" className={({ isActive }) => (isActive ? "active" : "")}>
+        Companies
+      </NavLink>
+      <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>
+        Profile
+      </NavLink>
+      <NavLink to="/settings" className={({ isActive }) => (isActive ? "active" : "")}>
+        Settings
+      </NavLink>
     </nav>
   );
 }

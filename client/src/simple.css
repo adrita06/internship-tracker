@@ -5,52 +5,86 @@
 
 body {
   background: #ffffff;
-  color: #111111;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #222222;
+  font-family: -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
   margin: 0;
+  line-height: 1.5;
 }
 
 .app-container {
-  max-width: 900px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 32px 24px 64px;
 }
 
 /* Navbar */
 .navbar {
   display: flex;
-  gap: 20px;
-  padding: 16px 20px;
-  border-bottom: 2px solid #000000;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #000000;
+}
+
+.navbar .brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-right: auto;
 }
 
 .navbar a {
-  color: #111111;
+  color: #444444;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 14px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar a:hover {
-  text-decoration: underline;
+  color: #000000;
+}
+
+.navbar a.active {
+  color: #000000;
+  border-bottom-color: #000000;
 }
 
 /* Headings */
 h1, h2, h3 {
   color: #000000;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 19px;
+  margin: 32px 0 12px;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 0 0 4px;
 }
 
 /* Cards / list items */
 .card {
-  border: 1px solid #000000;
-  border-radius: 4px;
-  padding: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 18px 20px;
   margin-bottom: 12px;
   background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card:hover {
-  background: #f5f5f5;
+  border-color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 /* Buttons */
@@ -58,41 +92,52 @@ button, .btn {
   background: #000000;
   color: #ffffff;
   border: 1px solid #000000;
-  border-radius: 4px;
-  padding: 8px 14px;
+  border-radius: 6px;
+  padding: 9px 16px;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s ease, opacity 0.15s ease;
 }
 
 button:hover, .btn:hover {
-  background: #333333;
+  background: #2a2a2a;
 }
 
 button.secondary {
   background: #ffffff;
   color: #000000;
+  border: 1px solid #000000;
 }
 
 button.secondary:hover {
-  background: #eeeeee;
+  background: #f2f2f2;
 }
 
 /* Forms */
 input, textarea, select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 12px;
-  border: 1px solid #000000;
-  border-radius: 4px;
+  padding: 9px 10px;
+  margin-bottom: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
   font-size: 14px;
   background: #ffffff;
-  color: #111111;
+  color: #222222;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #000000;
 }
 
 label {
   display: block;
-  font-weight: bold;
-  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #555555;
+  margin-bottom: 6px;
 }
 
 /* Table */
@@ -100,26 +145,37 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th, td {
-  border: 1px solid #000000;
-  padding: 8px;
+  border-bottom: 1px solid #eeeeee;
+  padding: 10px 12px;
   text-align: left;
+  font-size: 14px;
 }
 
 th {
   background: #000000;
   color: #ffffff;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+tr:last-child td {
+  border-bottom: none;
 }
 
 .actions {
   display: flex;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .muted {
-  color: #555555;
+  color: #777777;
   font-size: 14px;
 }
