@@ -1,0 +1,125 @@
+/* Simple black & white theme */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 20px;
+  padding: 16px 20px;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 20px;
+}
+
+.navbar a {
+  color: #111111;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #000000;
+}
+
+/* Cards / list items */
+.card {
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #ffffff;
+}
+
+.card:hover {
+  background: #f5f5f5;
+}
+
+/* Buttons */
+button, .btn {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover, .btn:hover {
+  background: #333333;
+}
+
+button.secondary {
+  background: #ffffff;
+  color: #000000;
+}
+
+button.secondary:hover {
+  background: #eeeeee;
+}
+
+/* Forms */
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #111111;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background: #000000;
+  color: #ffffff;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.muted {
+  color: #555555;
+  font-size: 14px;
+}
