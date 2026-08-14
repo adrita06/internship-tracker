@@ -1,0 +1,81 @@
+export const mockApplications = [
+  {
+    id: "1",
+    company: "Vivasoft",
+    position: "Software Engineer Intern",
+    status: "Applied",
+    applicationDate: "2026-08-10",
+    fitScore: 87,
+    jobDescription:
+      "Software engineering internship focused on backend development and REST APIs.",
+    interviewNotes: "",
+    experience: "Built REST APIs using Node.js and Express.",
+  },
+  {
+    id: "2",
+    company: "Intelligent Machines",
+    position: "Software Engineering Intern",
+    status: "Interview",
+    applicationDate: "2026-08-08",
+    fitScore: 92,
+    jobDescription:
+      "Software engineering internship involving application development.",
+    interviewNotes: "Technical interview scheduled.",
+    experience: "Experience with React, Node.js and databases.",
+  },
+  {
+    id: "3",
+    company: "Datasoft",
+    position: "Backend Intern",
+    status: "Wishlist",
+    applicationDate: "2026-08-05",
+    fitScore: 78,
+    jobDescription:
+      "Backend development internship involving APIs and databases.",
+    interviewNotes: "",
+    experience: "",
+  },
+  {
+    id: "4",
+    company: "Brain Station 23",
+    position: "Software Engineer Intern",
+    status: "HR Screening",
+    applicationDate: "2026-08-03",
+    fitScore: 84,
+    jobDescription:
+      "Software engineering internship with web development responsibilities.",
+    interviewNotes: "Waiting for HR response.",
+    experience: "React and Express project experience.",
+  },
+  {
+    id: "5",
+    company: "Tech Company",
+    position: "Frontend Intern",
+    status: "Offer",
+    applicationDate: "2026-07-28",
+    fitScore: 95,
+    jobDescription: "Frontend development internship.",
+    interviewNotes: "Offer received.",
+    experience: "Multiple React projects.",
+  },
+  {
+    id: "6",
+    company: "Startup BD",
+    position: "Backend Intern",
+    status: "Rejected",
+    applicationDate: "2026-07-20",
+    fitScore: 70,
+    jobDescription: "Backend development role.",
+    interviewNotes: "",
+    experience: "Node.js and MongoDB.",
+  },
+];
+
+export const applicationStatuses = [
+  "Wishlist",
+  "Applied",
+  "HR Screening",
+  "Interview",
+  "Offer",
+  "Rejected",
+];

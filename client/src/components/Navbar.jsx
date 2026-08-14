@@ -13,6 +13,23 @@ function Navbar() {
       <NavLink to="/settings" className={({ isActive }) => (isActive ? "active" : "")}>
         Settings
       </NavLink>
+      <NavLink
+        to="/dashboard"
+        className={({ isActive }) =>
+          isActive ? "active" : ""
+        }
+      >
+        Dashboard
+      </NavLink>
+
+      <NavLink
+        to="/applications"
+        className={({ isActive }) =>
+          isActive ? "active" : ""
+        }
+      >
+        Applications
+      </NavLink>
     </nav>
   );
 }
