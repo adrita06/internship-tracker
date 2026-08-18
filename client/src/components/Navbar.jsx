@@ -30,6 +30,22 @@ function Navbar() {
       >
         Applications
       </NavLink>
+      <NavLink
+        to="/cvs"
+        className={({ isActive }) =>
+          isActive ? "active" : ""
+        }
+      >
+        CVs
+      </NavLink>
+      <NavLink
+        to="/fitscore"
+        className={({ isActive }) =>
+          isActive ? "active" : ""
+        }
+      >
+        FitScore
+      </NavLink>
     </nav>
   );
 }
