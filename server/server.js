@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import applicationRoutes from "./routes/applicationRoutes.js";
+import interviewRoutes from "./routes/interviewRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch(err=>console.log(err));
 
 app.use("/api/applications", applicationRoutes);
+app.use("/api/interview-questions", interviewRoutes);
 
 app.get("/",(req,res)=>{
     res.send("API Running");

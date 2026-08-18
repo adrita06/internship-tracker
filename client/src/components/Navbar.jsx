@@ -30,6 +30,15 @@ function Navbar() {
       >
         Applications
       </NavLink>
+
+      <NavLink
+        to="/interview"
+        className={({ isActive }) =>
+          isActive ? "active" : ""
+        }
+      >
+        Interview Prep
+      </NavLink>
     </nav>
   );
 }

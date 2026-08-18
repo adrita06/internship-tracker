@@ -8,6 +8,7 @@ import Settings from "./pages/profile/Settings";
 import Dashboard from "./pages/application/Dashboard";
 import ApplicationList from "./pages/application/ApplicationList";
 import ApplicationDetails from "./pages/application/ApplicationDetails";
+import InterviewQuestions from "./pages/interview/InterviewQuestions";
 import "./simple.css";
 
 function App() {
@@ -35,6 +36,11 @@ function App() {
           <Route
             path="/applications/:id"
             element={<ApplicationDetails />}
+          />
+
+          <Route
+            path="/interview"
+            element={<InterviewQuestions />}
           />
                   </Routes>
       </div>

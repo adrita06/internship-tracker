@@ -484,3 +484,83 @@ tr:last-child td {
     align-items: flex-start;
   }
 }
+
+/* Interview Preparation */
+
+.badge {
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.readiness-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.readiness-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.readiness-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  background: #eee;
+  border-radius: 20px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar-fill {
+  background: #000;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.2s ease;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tabs button {
+  padding: 7px 14px;
+}
+
+.question-list {
+  margin-top: 16px;
+}
+
+.question-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.question-card-header select {
+  width: auto;
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .readiness-grid {
+    grid-template-columns: 1fr;
+  }
+}
