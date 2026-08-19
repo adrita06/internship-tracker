@@ -40,6 +40,12 @@ const companySchema = new mongoose.Schema(
           match: [/^\S+@\S+\.\S+$/, "Please enter a valid email address"],
         },
 
+        mobile: {
+          type: String,
+          trim: true,
+          maxlength: [30, "Mobile number cannot exceed 30 characters"],
+        },
+
         linkedin: String,
       },
     ],
