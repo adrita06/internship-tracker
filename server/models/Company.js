@@ -1,53 +1,23 @@
 import mongoose from "mongoose";
 
+const hrContactSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, trim: true },
+    email: { type: String, trim: true },
+    mobile: { type: String, trim: true, maxlength: 30 },
+    linkedin: { type: String, trim: true },
+  },
+  { _id: true }
+);
+
 const companySchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: [true, "Company name is required"],
-      trim: true,
-      maxlength: [100, "Company name cannot exceed 100 characters"],
-    },
-
-    industry: {
-      type: String,
-      trim: true,
-    },
-
-    website: {
-      type: String,
-      trim: true,
-      match: [
-        /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/.*)?$/,
-        "Please enter a valid website URL",
-      ],
-    },
-
-    location: {
-      type: String,
-      trim: true,
-    },
-
-    hrContacts: [
-      {
-        name: {
-          type: String,
-          required: [true, "HR contact name is required"],
-        },
-
-        email: {
-          type: String,
-          match: [/^\S+@\S+\.\S+$/, "Please enter a valid email address"],
-        },
-
-        linkedin: String,
-      },
-    ],
-
-    notes: {
-      type: String,
-      maxlength: [500, "Notes cannot exceed 500 characters"],
-    },
+    name: { type: String, required: true, trim: true, maxlength: 100 },
+    industry: { type: String, trim: true },
+    website: { type: String, trim: true },
+    location: { type: String, trim: true },
+    notes: { type: String, trim: true, maxlength: 500 },
+    hrContacts: { type: [hrContactSchema], default: [] },
   },
   { timestamps: true }
 );
