@@ -4,7 +4,7 @@ import ApplicationModal from "../../components/ApplicationModal";
 import { applicationStatuses } from "./mockApplications";
 import { createApplication, getApplications, updateApplication } from "../../services/applicationService";
 import { getCompanies } from "../../services/companyService";
-import { getDemoUser } from "../../services/userService";
+
 
 function ApplicationList() {
   const [applications, setApplications] = useState([]);
@@ -41,8 +41,7 @@ function ApplicationList() {
         const updated = await updateApplication(application._id, application);
         setApplications((prev) => prev.map((item) => item._id === updated._id ? updated : item));
       } else {
-        const user = await getDemoUser();
-        const created = await createApplication({ ...application, user: user._id });
+        const created = await createApplication(application); 
         setApplications((prev) => [...prev, created]);
       }
       setModalOpen(false);

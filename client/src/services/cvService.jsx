@@ -1,33 +1,11 @@
-import axios from "axios";
+import api from "./api";
+const RESOURCE = "/cvs";
 
-const API_URL = "http://localhost:3000/api/cvs";
-
-export const getCVs = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
-};
-
-export const getCV = async (id) => {
-  const response = await axios.get(`${API_URL}/${id}`);
-  return response.data;
-};
-
+export const getCVs = async () => (await api.get(RESOURCE)).data;
+export const getCV = async (id) => (await api.get(`${RESOURCE}/${id}`)).data;
 export const createCV = async (cv) => {
-  const response = await axios.post(API_URL, cv, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
-
+  const response = await api.post(RESOURCE, cv);
   return response.data;
 };
-
-export const updateCV = async (id, cv) => {
-  const response = await axios.put(`${API_URL}/${id}`, cv);
-  return response.data;
-};
-
-export const deleteCV = async (id) => {
-  const response = await axios.delete(`${API_URL}/${id}`);
-  return response.data;
-};
+export const updateCV = async (id, cv) => (await api.put(`${RESOURCE}/${id}`, cv)).data;
+export const deleteCV = async (id) => (await api.delete(`${RESOURCE}/${id}`)).data;

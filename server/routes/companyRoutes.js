@@ -1,7 +1,9 @@
 import express from "express";
 import Company from "../models/Company.js";
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
+router.use(authMiddleware);
 
 router.get("/", async (_req, res) => {
   try {

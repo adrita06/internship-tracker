@@ -5,7 +5,6 @@ import {
   deleteCV,
   getCVs,
 } from "../../services/cvService";
-import { getDemoUser } from "../../services/userService";
 
 const SERVER_URL = "http://localhost:3000";
 
@@ -49,9 +48,7 @@ function CVList() {
       setSaving(true);
       setError("");
 
-      const user = await getDemoUser();
       const formData = new FormData();
-      formData.append("user", user._id);
       formData.append("title", title);
       formData.append("skills", skills);
       formData.append("notes", notes);

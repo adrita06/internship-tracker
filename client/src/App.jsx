@@ -11,6 +11,10 @@ import ApplicationDetails from "./pages/application/ApplicationDetails";
 import CVList from "./pages/cv/CVList";
 import FitScore from "./pages/fitscore/FitScore";
 import InterviewQuestions from "./pages/interview/InterviewQuestions";
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
+
+import ProtectedRoute from "./components/ProtectedRoute";
 import "./simple.css";
 
 function App() {
@@ -19,29 +23,33 @@ function App() {
       <Navbar />
       <div className="app-container">
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="/companies" element={<CompanyList />} />
-          <Route path="/companies/:id" element={<CompanyDetails />} />
-          <Route path="/hr-contacts" element={<HRContacts />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route
-            path="/dashboard"
-            element={<Dashboard />}
-          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/companies" element={<CompanyList />} />
+            <Route path="/companies/:id" element={<CompanyDetails />} />
+            <Route path="/hr-contacts" element={<HRContacts />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route
+              path="/dashboard"
+              element={<Dashboard />}
+            />
 
-          <Route
-            path="/applications"
-            element={<ApplicationList />}
-          />
+            <Route
+              path="/applications"
+              element={<ApplicationList />}
+            />
 
-          <Route
-            path="/applications/:id"
-            element={<ApplicationDetails />}
-          />
-          <Route path="/cvs" element={<CVList />} />
-          <Route path="/fitscore" element={<FitScore />} />
-          <Route path="/interview" element={<InterviewQuestions />} />
+            <Route
+              path="/applications/:id"
+              element={<ApplicationDetails />}
+            />
+            <Route path="/cvs" element={<CVList />} />
+            <Route path="/fitscore" element={<FitScore />} />
+            <Route path="/interview" element={<InterviewQuestions />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

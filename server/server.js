@@ -2,19 +2,28 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import cvRoutes from "./routes/cvRoutes.js";
 import fitScoreRoutes from "./routes/fitScoreRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import interviewRoutes from "./routes/interviewRoutes.js";
 import companyRoutes from "./routes/companyRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+
 dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
-app.use("/api/companies", companyRoutes);
+app.use(cookieParser());
 app.use("/uploads", express.static("uploads"));
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -23,6 +32,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
+app.use("/api/auth", authRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/cvs", cvRoutes);
 app.use("/api/fitscore", fitScoreRoutes);

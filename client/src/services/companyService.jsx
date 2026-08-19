@@ -1,9 +1,8 @@
-import axios from "axios";
+import api from "./api";
+const RESOURCE = "/companies";
 
-const API_URL = "http://localhost:3000/api/companies";
-
-export const getCompanies = async () => (await axios.get(API_URL)).data;
-export const getCompany = async (id) => (await axios.get(`${API_URL}/${id}`)).data;
-export const createCompany = async (company) => (await axios.post(API_URL, company)).data;
-export const updateCompany = async (id, company) => (await axios.put(`${API_URL}/${id}`, company)).data;
-export const deleteCompany = async (id) => (await axios.delete(`${API_URL}/${id}`)).data;
+export const getCompanies = async () => (await api.get(RESOURCE)).data;
+export const getCompany = async (id) => (await api.get(`${RESOURCE}/${id}`)).data;
+export const createCompany = async (company) => (await api.post(RESOURCE, company)).data;
+export const updateCompany = async (id, company) => (await api.put(`${RESOURCE}/${id}`, company)).data;
+export const deleteCompany = async (id) => (await api.delete(`${RESOURCE}/${id}`)).data;

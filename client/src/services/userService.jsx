@@ -1,6 +1,5 @@
-import axios from "axios";
+import api from "./api";
+const RESOURCE = "/users";
 
-const API_URL = "http://localhost:3000/api/users";
-
-export const getDemoUser = async () => (await axios.get(`${API_URL}/demo`)).data;
-export const updateUser = async (id, user) => (await axios.put(`${API_URL}/${id}`, user)).data;
+export const getMe = async () => (await api.get(`${RESOURCE}/me`)).data;
+export const updateMe = async (updates) => (await api.put(`${RESOURCE}/me`, updates)).data;

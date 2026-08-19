@@ -1,7 +1,9 @@
 import express from "express";
 import InterviewQuestion from "../models/InterviewQuestion.js";
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
+router.use(authMiddleware);
 
 // GET all interview questions
 router.get("/", async (req, res) => {
