@@ -12,7 +12,7 @@ body {
 }
 
 .app-container {
-  max-width: 760px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 32px 24px 64px;
 }
@@ -140,6 +140,25 @@ label {
   margin-bottom: 6px;
 }
 
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.form-label-row label {
+  margin-bottom: 0;
+}
+
+.form-label-row button {
+  width: auto;
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
 /* Table */
 table {
   width: 100%;
@@ -178,4 +197,453 @@ tr:last-child td {
 .muted {
   color: #777777;
   font-size: 14px;
+}
+
+/* Application Management */
+
+.applications-page,
+.dashboard,
+.application-details {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.page-header h1 {
+  margin-bottom: 4px;
+}
+
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(220px, 1fr));
+  gap: 16px;
+  overflow-x: auto;
+  align-items: start;
+}
+
+.kanban-column {
+  background: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  min-height: 400px;
+  padding: 12px;
+}
+
+.kanban-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.kanban-column-header h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.kanban-column-header span {
+  background: #000;
+  color: #fff;
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.application-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.application-card:hover {
+  border-color: #000;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.application-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.application-card-header h3 {
+  margin-bottom: 3px;
+}
+
+.application-card-header p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.fit-score {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.application-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #777;
+}
+
+.application-card-footer button {
+  padding: 5px 9px;
+  font-size: 12px;
+}
+
+.empty-column {
+  color: #999;
+  font-size: 13px;
+  text-align: center;
+  padding: 30px 5px;
+}
+
+/* Dashboard */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.stat-card span {
+  display: block;
+  color: #666;
+  font-size: 13px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 30px;
+  margin-top: 8px;
+}
+
+.dashboard-section {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header h2 {
+  margin-top: 0;
+}
+
+.recent-application {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-top: 1px solid #eee;
+}
+
+.recent-application strong,
+.recent-application span {
+  display: block;
+}
+
+.recent-application > span {
+  color: #666;
+}
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.modal-close {
+  background: transparent;
+  color: #000;
+  border: none;
+  font-size: 25px;
+  padding: 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Details */
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 30px 0;
+}
+
+.details-header h1 {
+  margin-bottom: 5px;
+}
+
+.details-header h2 {
+  margin: 0;
+  color: #666;
+}
+
+.status-badge {
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.details-card,
+.details-section {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.details-card h3 {
+  color: #666;
+  font-size: 13px;
+}
+
+.details-card p {
+  margin-bottom: 0;
+}
+
+.large-score {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* CV & FitScore */
+
+.btn.secondary {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  text-decoration: none;
+}
+
+.btn.secondary:hover {
+  background: #f2f2f2;
+}
+
+.cv-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.skill-tag {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.skill-tag.missing {
+  background: #ffffff;
+  color: #555555;
+  border-color: #bbbbbb;
+}
+
+.fitscore-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  gap: 20px;
+  align-items: start;
+}
+
+.fitscore-result h2 {
+  margin-top: 22px;
+}
+
+.error-message {
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #000000;
+  background: #f7f7f7;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .kanban-board {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .kanban-board {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid,
+  .details-grid,
+  .fitscore-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header,
+  .details-header,
+  .cv-card-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
+
+/* Interview Preparation */
+
+.badge {
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.readiness-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.readiness-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.readiness-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  background: #eee;
+  border-radius: 20px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar-fill {
+  background: #000;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.2s ease;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tabs button {
+  padding: 7px 14px;
+}
+
+.question-list {
+  margin-top: 16px;
+}
+
+.question-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.question-card-header select {
+  width: auto;
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .readiness-grid {
+    grid-template-columns: 1fr;
+  }
 }

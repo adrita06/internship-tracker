@@ -40,6 +40,11 @@ const userSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+
+    settings: {
+      emailNotifications: { type: Boolean, default: true },
+      reminderDays: { type: Number, default: 3, min: 0 },
+    },
   },
   { timestamps: true }
 );

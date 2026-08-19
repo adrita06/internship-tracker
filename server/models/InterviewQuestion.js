@@ -22,6 +22,15 @@ const interviewQuestionSchema = new mongoose.Schema(
       type: String,
       maxlength: [5000, "Answer notes cannot exceed 5000 characters"],
     },
+
+    status: {
+      type: String,
+      enum: {
+        values: ["Unattempted", "Practicing", "Mastered"],
+        message: "{VALUE} is not a valid interview question status",
+      },
+      default: "Unattempted",
+    },
   },
   { timestamps: true }
 );
