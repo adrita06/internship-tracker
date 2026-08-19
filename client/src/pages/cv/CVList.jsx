@@ -4,10 +4,10 @@ import {
   createCV,
   deleteCV,
   getCVs,
-  getDemoUser,
 } from "../../services/cvService";
+import { getDemoUser } from "../../services/userService";
 
-const SERVER_URL = "http://localhost:5000";
+const SERVER_URL = "http://localhost:3000";
 
 function CVList() {
   const [cvs, setCVs] = useState([]);

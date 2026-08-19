@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ApplicationCard from "../../components/ApplicationCard";
 import ApplicationModal from "../../components/ApplicationModal";
-import {
-  mockApplications,
-  applicationStatuses,
-} from "./mockApplications";
+import { applicationStatuses } from "./mockApplications";
+import { createApplication, getApplications, updateApplication } from "../../services/applicationService";
+import { getCompanies } from "../../services/companyService";
+import { getDemoUser } from "../../services/userService";
 
 function ApplicationList() {
-  const [applications, setApplications] =
-    useState(mockApplications);
+  const [applications, setApplications] = useState([]);
+  const [companies, setCompanies] = useState([]);
+  const [error, setError] = useState("");
 
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedApplication, setSelectedApplication] =
@@ -24,22 +25,30 @@ function ApplicationList() {
     setModalOpen(true);
   };
 
-  const handleSave = (application) => {
-    setApplications((prev) => {
-      const exists = prev.some(
-        (item) => item.id === application.id
-      );
+  useEffect(() => {
+    Promise.all([getApplications(), getCompanies()])
+      .then(([applicationData, companyData]) => {
+        setApplications(applicationData);
+        setCompanies(companyData);
+      })
+      .catch((err) => setError(err.response?.data?.message || "Failed to load applications"));
+  }, []);
 
-      if (exists) {
-        return prev.map((item) =>
-          item.id === application.id
-            ? application
-            : item
-        );
+  const handleSave = async (application) => {
+    try {
+      setError("");
+      if (application._id) {
+        const updated = await updateApplication(application._id, application);
+        setApplications((prev) => prev.map((item) => item._id === updated._id ? updated : item));
+      } else {
+        const user = await getDemoUser();
+        const created = await createApplication({ ...application, user: user._id });
+        setApplications((prev) => [...prev, created]);
       }
-
-      return [...prev, application];
-    });
+      setModalOpen(false);
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to save application");
+    }
   };
 
   return (
@@ -56,6 +65,8 @@ function ApplicationList() {
           + Add Application
         </button>
       </div>
+
+      {error && <p className="error-message">{error}</p>}
 
       <div className="kanban-board">
         {applicationStatuses.map((status) => {
@@ -81,7 +92,7 @@ function ApplicationList() {
                 {statusApplications.map(
                   (application) => (
                     <ApplicationCard
-                      key={application.id}
+                      key={application._id}
                       application={application}
                       onEdit={handleEdit}
                     />
@@ -104,6 +115,7 @@ function ApplicationList() {
         onClose={() => setModalOpen(false)}
         onSave={handleSave}
         application={selectedApplication}
+        companies={companies}
       />
     </div>
   );
