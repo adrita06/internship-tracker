@@ -17,7 +17,16 @@ const cvSchema = new mongoose.Schema(
 
     fileUrl: {
       type: String,
-      required: [true, "CV file URL is required"],
+    },
+
+    skills: {
+      type: [String],
+      default: [],
+    },
+
+    notes: {
+      type: String,
+      maxlength: [500, "Notes cannot exceed 500 characters"],
     },
   },
   { timestamps: true }

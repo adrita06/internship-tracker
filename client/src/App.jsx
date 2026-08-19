@@ -8,6 +8,8 @@ import Settings from "./pages/profile/Settings";
 import Dashboard from "./pages/application/Dashboard";
 import ApplicationList from "./pages/application/ApplicationList";
 import ApplicationDetails from "./pages/application/ApplicationDetails";
+import CVList from "./pages/cv/CVList";
+import FitScore from "./pages/fitscore/FitScore";
 import InterviewQuestions from "./pages/interview/InterviewQuestions";
 import "./simple.css";
 
@@ -37,6 +39,9 @@ function App() {
             path="/applications/:id"
             element={<ApplicationDetails />}
           />
+          <Route path="/cvs" element={<CVList />} />
+          <Route path="/fitscore" element={<FitScore />} />
+        </Routes>
 
           <Route
             path="/interview"
