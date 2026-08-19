@@ -6,11 +6,11 @@ function ApplicationCard({ application, onEdit }) {
   return (
     <div
       className="application-card"
-      onClick={() => navigate(`/applications/${application.id}`)}
+      onClick={() => navigate(`/applications/${application._id}`)}
     >
       <div className="application-card-header">
         <div>
-          <h3>{application.company}</h3>
+          <h3>{application.company?.name || "Unknown company"}</h3>
           <p>{application.position}</p>
         </div>
 
@@ -20,7 +20,7 @@ function ApplicationCard({ application, onEdit }) {
       </div>
 
       <div className="application-card-footer">
-        <span>{application.applicationDate}</span>
+        <span>{new Date(application.applicationDate).toLocaleDateString()}</span>
 
         <button
           className="secondary"

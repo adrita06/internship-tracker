@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
-import {
-  mockApplications,
-} from "./mockApplications";
+import { useEffect, useState } from "react";
+import { getApplications } from "../../services/applicationService";
 
 function Dashboard() {
-  const total = mockApplications.length;
+  const [applications, setApplications] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    getApplications().then(setApplications).catch((err) => setError(err.response?.data?.message || "Failed to load dashboard"));
+  }, []);
+
+  const total = applications.length;
 
   const countByStatus = (status) =>
-    mockApplications.filter(
+    applications.filter(
       (application) =>
         application.status === status
     ).length;
@@ -29,6 +35,8 @@ function Dashboard() {
           View Applications
         </Link>
       </div>
+
+      {error && <p className="error-message">{error}</p>}
 
       <div className="stats-grid">
         <div className="stat-card">
@@ -74,16 +82,16 @@ function Dashboard() {
           </Link>
         </div>
 
-        {mockApplications
+        {applications
           .slice(0, 5)
           .map((application) => (
             <div
               className="recent-application"
-              key={application.id}
+              key={application._id}
             >
               <div>
                 <strong>
-                  {application.company}
+                  {application.company?.name || "Unknown company"}
                 </strong>
 
                 <span>

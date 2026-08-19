@@ -14,6 +14,7 @@ function ApplicationModal({
   onClose,
   onSave,
   application,
+  companies,
 }) {
   const [formData, setFormData] = useState({
     company: "",
@@ -28,7 +29,11 @@ function ApplicationModal({
 
   useEffect(() => {
     if (application) {
-      setFormData(application);
+      setFormData({
+        ...application,
+        company: application.company?._id || application.company || "",
+        applicationDate: application.applicationDate?.slice(0, 10) || "",
+      });
     } else {
       setFormData({
         company: "",
@@ -62,7 +67,7 @@ function ApplicationModal({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.company.trim()) {
+    if (!formData.company) {
       alert("Company is required");
       return;
     }
@@ -72,12 +77,7 @@ function ApplicationModal({
       return;
     }
 
-    onSave({
-      ...formData,
-      id: application?.id || Date.now().toString(),
-    });
-
-    onClose();
+    onSave(formData);
   };
 
   return (
@@ -103,12 +103,16 @@ function ApplicationModal({
 
         <form onSubmit={handleSubmit}>
           <label>Company</label>
-          <input
+          <select
             name="company"
             value={formData.company}
             onChange={handleChange}
-            placeholder="e.g. Vivasoft"
-          />
+          >
+            <option value="">Select a company</option>
+            {companies.map((company) => (
+              <option key={company._id} value={company._id}>{company.name}</option>
+            ))}
+          </select>
 
           <label>Position</label>
           <input

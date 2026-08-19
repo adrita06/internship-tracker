@@ -41,13 +41,8 @@ function App() {
           />
           <Route path="/cvs" element={<CVList />} />
           <Route path="/fitscore" element={<FitScore />} />
+          <Route path="/interview" element={<InterviewQuestions />} />
         </Routes>
-
-          <Route
-            path="/interview"
-            element={<InterviewQuestions />}
-          />
-                  </Routes>
       </div>
     </BrowserRouter>
   );

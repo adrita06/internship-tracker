@@ -1,57 +1,21 @@
 import { NavLink } from "react-router-dom";
 
+const links = [
+  ["/dashboard", "Dashboard"],
+  ["/applications", "Applications"],
+  ["/companies", "Companies"],
+  ["/cvs", "CVs"],
+  ["/fitscore", "FitScore"],
+  ["/interview", "Interview Prep"],
+  ["/profile", "Profile"],
+  ["/settings", "Settings"],
+];
+
 function Navbar() {
-  return (
-    <nav className="navbar">
-      <span className="brand">Internship Tracker</span>
-      <NavLink to="/companies" className={({ isActive }) => (isActive ? "active" : "")}>
-        Companies
-      </NavLink>
-      <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>
-        Profile
-      </NavLink>
-      <NavLink to="/settings" className={({ isActive }) => (isActive ? "active" : "")}>
-        Settings
-      </NavLink>
-      <NavLink
-        to="/dashboard"
-        className={({ isActive }) =>
-          isActive ? "active" : ""
-        }
-      >
-        Dashboard
-      </NavLink>
-
-      <NavLink
-        to="/applications"
-        className={({ isActive }) =>
-          isActive ? "active" : ""
-        }
-      >
-        Applications
-      </NavLink>
-      <NavLink
-        to="/cvs"
-
-      <NavLink
-        to="/interview"
-        className={({ isActive }) =>
-          isActive ? "active" : ""
-        }
-      >
-        CVs
-      </NavLink>
-      <NavLink
-        to="/fitscore"
-        className={({ isActive }) =>
-          isActive ? "active" : ""
-        }
-      >
-        FitScore
-        Interview Prep
-      </NavLink>
-    </nav>
-  );
+  return <nav className="navbar">
+    <span className="brand">Internship Tracker</span>
+    {links.map(([to, label]) => <NavLink key={to} to={to} className={({ isActive }) => isActive ? "active" : ""}>{label}</NavLink>)}
+  </nav>;
 }
 
 export default Navbar;
