@@ -17,10 +17,11 @@ app.use(express.json());
 app.use("/api/companies", companyRoutes);
 app.use("/uploads", express.static("uploads"));
 
-
-mongoose.connect(process.env.MONGO_URI)
-.then(()=>console.log("MongoDB Connected"))
-.catch(err=>console.log(err));
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: "internship-tracker",
+})
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
 
 app.use("/api/applications", applicationRoutes);
 app.use("/api/cvs", cvRoutes);
