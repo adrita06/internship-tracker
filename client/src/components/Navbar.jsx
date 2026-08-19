@@ -32,6 +32,9 @@ function Navbar() {
       </NavLink>
       <NavLink
         to="/cvs"
+
+      <NavLink
+        to="/interview"
         className={({ isActive }) =>
           isActive ? "active" : ""
         }
@@ -45,6 +48,7 @@ function Navbar() {
         }
       >
         FitScore
+        Interview Prep
       </NavLink>
     </nav>
   );

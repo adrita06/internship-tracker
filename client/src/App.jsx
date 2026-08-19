@@ -10,6 +10,7 @@ import ApplicationList from "./pages/application/ApplicationList";
 import ApplicationDetails from "./pages/application/ApplicationDetails";
 import CVList from "./pages/cv/CVList";
 import FitScore from "./pages/fitscore/FitScore";
+import InterviewQuestions from "./pages/interview/InterviewQuestions";
 import "./simple.css";
 
 function App() {
@@ -41,6 +42,12 @@ function App() {
           <Route path="/cvs" element={<CVList />} />
           <Route path="/fitscore" element={<FitScore />} />
         </Routes>
+
+          <Route
+            path="/interview"
+            element={<InterviewQuestions />}
+          />
+                  </Routes>
       </div>
     </BrowserRouter>
   );

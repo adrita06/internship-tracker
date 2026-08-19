@@ -6,6 +6,7 @@ import applicationRoutes from "./routes/applicationRoutes.js";
 import cvRoutes from "./routes/cvRoutes.js";
 import fitScoreRoutes from "./routes/fitScoreRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import interviewRoutes from "./routes/interviewRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -23,6 +24,7 @@ app.use("/api/applications", applicationRoutes);
 app.use("/api/cvs", cvRoutes);
 app.use("/api/fitscore", fitScoreRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/interview-questions", interviewRoutes);
 
 app.get("/",(req,res)=>{
     res.send("API Running");
