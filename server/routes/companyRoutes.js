@@ -7,7 +7,7 @@ router.use(authMiddleware);
 
 router.get("/", async (_req, res) => {
   try {
-    res.json(await Company.find().sort({ name: 1 }));
+    res.json(await Company.find({ user: req.user.id }).sort({ name: 1 }));
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch companies", error: error.message });
   }
@@ -15,7 +15,7 @@ router.get("/", async (_req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const company = await Company.findById(req.params.id);
+    const company = await Company.findOne({ _id: req.params.id, user: req.user.id });
     if (!company) return res.status(404).json({ message: "Company not found" });
     res.json(company);
   } catch (error) {
@@ -25,7 +25,8 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    res.status(201).json(await Company.create(req.body));
+    const company = await Company.create({ ...req.body, user: req.user.id });
+    res.status(201).json(company);
   } catch (error) {
     res.status(400).json({ message: "Failed to create company", error: error.message });
   }
@@ -33,7 +34,11 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const company = await Company.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const company = await Company.findOneAndUpdate(
+      { _id: req.params.id, user: req.user.id },
+      req.body,
+      { new: true, runValidators: true }
+    );
     if (!company) return res.status(404).json({ message: "Company not found" });
     res.json(company);
   } catch (error) {
@@ -43,7 +48,7 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const company = await Company.findByIdAndDelete(req.params.id);
+    const company = await Company.findOneAndDelete({ _id: req.params.id, user: req.user.id });
     if (!company) return res.status(404).json({ message: "Company not found" });
     res.json({ message: "Company deleted" });
   } catch (error) {

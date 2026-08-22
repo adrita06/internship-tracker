@@ -12,6 +12,11 @@ const hrContactSchema = new mongoose.Schema(
 
 const companySchema = new mongoose.Schema(
   {
+    user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: [true, "User is required"],
+    },
     name: { type: String, required: true, trim: true, maxlength: 100 },
     industry: { type: String, trim: true },
     website: { type: String, trim: true },
